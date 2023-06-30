@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html>
+    <head>
+        <script type="text/javascript" src="js/state.js"></script>
+        <script type="text/javascript" src="js/render.js"></script>
+        <script type="text/javascript" src="js/ui.js"></script>
+        <script type="text/javascript" src="js/step.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
+    </head>
+    
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <table style="font-family: mono">
+                        <tr>
+                            <td>Game Time:</td>
+                            <td><span id="gtime">0:00</span></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Game Speed:</td>
+                            <td><span id="gspeed">2</span></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Lives Remaining:</td>
+                            <td><span id="lives">🚗 🚗 🚗</span></td>
+                        </tr>
+                    </table>
+                </td>
+                
+                <td>
+                    <svg id="display" style="border:1px solid black" width="480px" height="800px"></svg>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
