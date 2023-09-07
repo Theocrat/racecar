@@ -7,12 +7,14 @@
         <script type="text/javascript" src="js/ui.js"></script>
         <script type="text/javascript" src="js/step.js"></script>
         <script type="text/javascript" src="js/init.js"></script>
+
+        <link rel="stylesheet" href="css/main.css" />
     </head>
     
-    <body>
+    <body onload="setGlobals()">
         <table>
             <tr>
-                <td>
+                <td width="300px">
                     <table style="font-family: mono">
                         <tr>
                             <td>Game Time:</td>
@@ -32,7 +34,9 @@
                 </td>
                 
                 <td>
-                    <svg id="display" style="border:1px solid black" width="480px" height="800px"></svg>
+                    <svg id="gameArea">
+                        
+                    </svg>
                 </td>
             </tr>
         </table>

@@ -3,7 +3,7 @@
 // Dimensions of each 'pixel' in the game display, and the number of
 // rows of columns of such 'pixels'
 const PIXEL_DIMS = 40
-const NUM_ROWS = 800 / PIXEL_DIMS
+const NUM_ROWS = 720 / PIXEL_DIMS
 const NUM_COLS = 480 / PIXEL_DIMS
 
 // Pixel Map object and the methods for accessing it easily
@@ -18,17 +18,37 @@ const setPixel = (r, c, val) => { PixelMap[r * NUM_COLS + c] = val }
 var myPos = Math.floor(NUM_COLS / 2)
 
 // Objects representing the 'enemy' cars
-const Enemies = []
+const Enemies = {}
+var numEnemies = 0
 
 // Constructor for new enemy cars, a quick wrapper for making new enemies
-function Enemy(col) {
-  this.row = 0
-  this.col = col
+class Enemy {
+  constructor(col) {
+    this.row = 0
+    this.col = col
+    this.id  = numEnemies
+
+    Enemies[this.id] = this
+    numEnemies += 1
+  }
+
+  step() {
+    if (this.row > NUM_ROWS) {
+      delete Enemies[this.id]
+    }
+
+    this.row += 1
+  }
+
+  draw() {
+    return drawCar(this.col, this.row, "red")
+  }
 }
 
 // Game State variables
 var gameSpeed = 2 // Number of steps per second
 var gameTime  = 0 // Game time in seconds
+var gamePause = false
 var livesRemaining = 3
 
 // Essential global pointers to HTML page elements, which are quasi-constants:
